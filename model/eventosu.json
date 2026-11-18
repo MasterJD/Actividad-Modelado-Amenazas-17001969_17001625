@@ -2,17 +2,17 @@
   "version": "2.6.2",
   "summary": {
     "title": "EventosU",
-    "owner": "[Nombre completo del integrante 1] y [Nombre completo del integrante 2]",
+    "owner": "Javier Donado y Pablo Agreda",
     "description": "Modelo de amenazas del sitio web EventosU en fase de diseño: publicación de eventos universitarios, inscripción, pago con pasarela externa, envío de entrada QR por correo, validación en puerta y exportación de inscritos.",
     "id": 0
   },
   "detail": {
     "contributors": [
       {
-        "name": "[Nombre completo del integrante 1] ([Carné integrante 1])"
+        "name": "Javier Donado (17001625)"
       },
       {
-        "name": "[Nombre completo del integrante 2] ([Carné integrante 2])"
+        "name": "Pablo Agreda (17001969)"
       }
     ],
     "diagrams": [

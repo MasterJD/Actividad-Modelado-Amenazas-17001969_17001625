@@ -6,8 +6,8 @@ Repositorio de la tarea de modelado de amenazas del curso de Ciberseguridad, en 
 
 | Nombre | Carné |
 |--------|-------|
-| [Nombre completo del integrante 1] | [Carné integrante 1] |
-| [Nombre completo del integrante 2] | [Carné integrante 2] |
+| Javier Donado | 17001625 |
+| Pablo Agreda | 17001969 |
 
 ## Estructura del repositorio
 
